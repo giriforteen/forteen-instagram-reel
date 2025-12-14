@@ -23,6 +23,55 @@
       position: fixed;
     }
 
+    /* Start Screen */
+    #start-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(135deg, #1a2332 0%, #c2185b 50%, #1976d2 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+    #start-screen.hidden {
+      display: none;
+    }
+
+    #start-screen .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 15vw;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 5vh;
+    }
+
+    #start-screen .tap-text {
+      font-size: 6vw;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.05); }
+    }
+
+    /* Animation Container */
+    #animation-container {
+      display: none;
+    }
+
+    #animation-container.active {
+      display: block;
+    }
+
     .scene {
       position: absolute;
       top: 0;
@@ -39,6 +88,15 @@
       padding: 8vh 6vw;
     }
 
+    /* Animations paused by default */
+    .scene {
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene {
+      animation-play-state: running;
+    }
+
     /* Scene 1: Intro */
     .scene-1 {
       background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
@@ -53,6 +111,11 @@
       margin-bottom: 2vh;
       animation: scaleIn 0.8s 0.3s ease-out forwards;
       transform: scale(0);
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-1 .logo {
+      animation-play-state: running;
     }
 
     .scene-1 .tagline {
@@ -62,6 +125,11 @@
       animation: slideUp 0.6s 0.8s ease-out forwards;
       transform: translateY(20px);
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-1 .tagline {
+      animation-play-state: running;
     }
 
     /* Scene 2: Studios */
@@ -82,6 +150,11 @@
       animation: slideDown 0.6s 3s ease-out forwards;
       transform: translateY(-20px);
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-2 .badge {
+      animation-play-state: running;
     }
 
     .scene-2 h1 {
@@ -94,6 +167,11 @@
       animation: slideUp 0.6s 3.3s ease-out forwards;
       transform: translateY(20px);
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-2 h1 {
+      animation-play-state: running;
     }
 
     .scene-2 .subtitle {
@@ -104,6 +182,11 @@
       animation: slideUp 0.6s 3.6s ease-out forwards;
       transform: translateY(20px);
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-2 .subtitle {
+      animation-play-state: running;
     }
 
     .scene-2 .features {
@@ -122,6 +205,11 @@
       animation: slideRight 0.5s ease-out forwards;
       transform: translateX(-30px);
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-2 .feature {
+      animation-play-state: running;
     }
 
     .scene-2 .feature:nth-child(1) { animation-delay: 4s; }
@@ -150,6 +238,11 @@
       animation: slideDown 0.6s 6.5s ease-out forwards;
       transform: translateY(-20px);
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-3 .badge {
+      animation-play-state: running;
     }
 
     .scene-3 h1 {
@@ -162,6 +255,11 @@
       animation: slideUp 0.6s 6.8s ease-out forwards;
       transform: translateY(20px);
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-3 h1 {
+      animation-play-state: running;
     }
 
     .scene-3 .subtitle {
@@ -172,6 +270,11 @@
       animation: slideUp 0.6s 7.1s ease-out forwards;
       transform: translateY(20px);
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-3 .subtitle {
+      animation-play-state: running;
     }
 
     .scene-3 .quote-box {
@@ -184,6 +287,11 @@
       animation: scaleIn 0.8s 7.5s ease-out forwards;
       transform: scale(0.8);
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-3 .quote-box {
+      animation-play-state: running;
     }
 
     .scene-3 .quote {
@@ -210,6 +318,11 @@
       animation: slideLeft 0.5s ease-out forwards;
       transform: translateX(30px);
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-3 .feature {
+      animation-play-state: running;
     }
 
     .scene-3 .feature:nth-child(1) { animation-delay: 8s; }
@@ -236,6 +349,11 @@
       padding: 5vh 5vw;
       animation: slideIn 0.8s ease-out forwards;
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .split-panel {
+      animation-play-state: running;
     }
 
     .split-panel.left {
@@ -285,6 +403,11 @@
       line-height: 1.2;
       animation: scaleIn 0.8s 13.5s ease-out forwards;
       transform: scale(0);
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-5 .main-cta {
+      animation-play-state: running;
     }
 
     .scene-5 .sub-cta {
@@ -295,6 +418,11 @@
       animation: slideUp 0.6s 14s ease-out forwards;
       transform: translateY(20px);
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-5 .sub-cta {
+      animation-play-state: running;
     }
 
     .scene-5 .url {
@@ -306,8 +434,13 @@
       color: white;
       font-weight: 700;
       letter-spacing: 1px;
-      animation: pulse 2s 14.5s ease-in-out infinite;
+      animation: urlPulse 2s 14.5s ease-in-out infinite;
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-5 .url {
+      animation-play-state: running;
     }
 
     .scene-5 .free-badge {
@@ -321,6 +454,11 @@
       margin-top: 4vh;
       animation: bounce 1s 15s ease-in-out infinite;
       opacity: 0;
+      animation-play-state: paused;
+    }
+
+    #animation-container.active .scene-5 .free-badge {
+      animation-play-state: running;
     }
 
     /* Animations */
@@ -332,7 +470,7 @@
     @keyframes slideRight { to { transform: translateX(0); opacity: 1; } }
     @keyframes slideLeft { to { transform: translateX(0); opacity: 1; } }
     @keyframes slideIn { to { transform: translateX(0); opacity: 1; } }
-    @keyframes pulse {
+    @keyframes urlPulse {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.05); opacity: 0.9; }
     }
@@ -344,54 +482,70 @@
 </head>
 <body>
 
-  <div class="scene scene-1">
+  <!-- Start Screen -->
+  <div id="start-screen" onclick="startAnimation()">
     <div class="logo">FORTEEN</div>
-    <div class="tagline">Where Professionals Become Unforgettable</div>
+    <div class="tap-text">TAP TO START</div>
   </div>
 
-  <div class="scene scene-2">
-    <div class="badge">🎬 FORTEEN STUDIOS</div>
-    <h1>Master<br/>Executive<br/>Presence</h1>
-    <div class="subtitle">Interactive Training Reimagined</div>
-    <div class="features">
-      <div class="feature"><span class="icon">⚡</span><span>60-second sessions</span></div>
-      <div class="feature"><span class="icon">🎯</span><span>Real VIP scenarios</span></div>
-      <div class="feature"><span class="icon">📈</span><span>Instant feedback</span></div>
+  <!-- Animation Container -->
+  <div id="animation-container">
+    <div class="scene scene-1">
+      <div class="logo">FORTEEN</div>
+      <div class="tagline">Where Professionals Become Unforgettable</div>
+    </div>
+
+    <div class="scene scene-2">
+      <div class="badge">🎬 FORTEEN STUDIOS</div>
+      <h1>Master<br/>Executive<br/>Presence</h1>
+      <div class="subtitle">Interactive Training Reimagined</div>
+      <div class="features">
+        <div class="feature"><span class="icon">⚡</span><span>60-second sessions</span></div>
+        <div class="feature"><span class="icon">🎯</span><span>Real VIP scenarios</span></div>
+        <div class="feature"><span class="icon">📈</span><span>Instant feedback</span></div>
+      </div>
+    </div>
+
+    <div class="scene scene-3">
+      <div class="badge">🧠 MIND LABS</div>
+      <h1>Understand<br/>Human<br/>Behavior</h1>
+      <div class="subtitle">Through Story & Psychology</div>
+      <div class="quote-box">
+        <div class="quote">"The current was always there. You just learned to call it home."</div>
+      </div>
+      <div class="features">
+        <div class="feature"><span class="icon">🎭</span><span>Stories that transform</span></div>
+        <div class="feature"><span class="icon">💡</span><span>Insights you discover</span></div>
+      </div>
+    </div>
+
+    <div class="scene scene-4">
+      <div class="split-panel left">
+        <div class="icon">🎬</div>
+        <h2>Studios</h2>
+        <p>Build Skills<br/>Through Practice</p>
+      </div>
+      <div class="split-panel right">
+        <div class="icon">🧠</div>
+        <h2>Mind Labs</h2>
+        <p>Understand<br/>Through Story</p>
+      </div>
+    </div>
+
+    <div class="scene scene-5">
+      <div class="main-cta">Visit Now.<br/>Try Free.</div>
+      <div class="sub-cta">No signup. No commitment.</div>
+      <div class="url">forteen.in</div>
+      <div class="free-badge">100% FREE</div>
     </div>
   </div>
 
-  <div class="scene scene-3">
-    <div class="badge">🧠 MIND LABS</div>
-    <h1>Understand<br/>Human<br/>Behavior</h1>
-    <div class="subtitle">Through Story & Psychology</div>
-    <div class="quote-box">
-      <div class="quote">"The current was always there. You just learned to call it home."</div>
-    </div>
-    <div class="features">
-      <div class="feature"><span class="icon">🎭</span><span>Stories that transform</span></div>
-      <div class="feature"><span class="icon">💡</span><span>Insights you discover</span></div>
-    </div>
-  </div>
-
-  <div class="scene scene-4">
-    <div class="split-panel left">
-      <div class="icon">🎬</div>
-      <h2>Studios</h2>
-      <p>Build Skills<br/>Through Practice</p>
-    </div>
-    <div class="split-panel right">
-      <div class="icon">🧠</div>
-      <h2>Mind Labs</h2>
-      <p>Understand<br/>Through Story</p>
-    </div>
-  </div>
-
-  <div class="scene scene-5">
-    <div class="main-cta">Visit Now.<br/>Try Free.</div>
-    <div class="sub-cta">No signup. No commitment.</div>
-    <div class="url">forteen.in</div>
-    <div class="free-badge">100% FREE</div>
-  </div>
+  <script>
+    function startAnimation() {
+      document.getElementById('start-screen').classList.add('hidden');
+      document.getElementById('animation-container').classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
