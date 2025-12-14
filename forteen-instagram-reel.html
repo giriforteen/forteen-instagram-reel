@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forteen Studios & Mind Labs - Instagram Reel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+    }
+
+    /* Scene Container */
+    .scene {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    /* Scene 1: Intro - "Forteen" */
+    .scene-1 {
+      background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
+      animation: fadeIn 0.5s ease-in forwards, fadeOut 0.5s 2s ease-out forwards;
+    }
+
+    .scene-1 .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 120px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 30px;
+      animation: scaleIn 0.8s 0.3s ease-out forwards;
+      transform: scale(0);
+    }
+
+    .scene-1 .tagline {
+      font-size: 42px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 300;
+      animation: slideUp 0.6s 0.8s ease-out forwards;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    /* Scene 2: Studios Showcase */
+    .scene-2 {
+      background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
+      animation: fadeIn 0.5s 2.5s ease-in forwards, fadeOut 0.5s 5.5s ease-out forwards;
+      padding: 100px;
+    }
+
+    .scene-2 .badge {
+      background: rgba(255, 107, 53, 0.2);
+      color: #ff6b35;
+      padding: 20px 50px;
+      border-radius: 50px;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 50px;
+      animation: slideDown 0.6s 3s ease-out forwards;
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+
+    .scene-2 h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 100px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 40px;
+      line-height: 1.1;
+      animation: slideUp 0.6s 3.3s ease-out forwards;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    .scene-2 .subtitle {
+      font-size: 48px;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 60px;
+      font-weight: 400;
+      animation: slideUp 0.6s 3.6s ease-out forwards;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    .scene-2 .features {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .scene-2 .feature {
+      font-size: 40px;
+      color: rgba(255, 255, 255, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      animation: slideRight 0.5s ease-out forwards;
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+
+    .scene-2 .feature:nth-child(1) { animation-delay: 4s; }
+    .scene-2 .feature:nth-child(2) { animation-delay: 4.2s; }
+    .scene-2 .feature:nth-child(3) { animation-delay: 4.4s; }
+
+    .scene-2 .feature .icon {
+      font-size: 50px;
+    }
+
+    /* Scene 3: Mind Labs Showcase */
+    .scene-3 {
+      background: linear-gradient(135deg, #c2185b 0%, #7b1fa2 50%, #1976d2 100%);
+      animation: fadeIn 0.5s 6s ease-in forwards, fadeOut 0.5s 9s ease-out forwards;
+      padding: 100px;
+    }
+
+    .scene-3 .badge {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 20px 50px;
+      border-radius: 50px;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 50px;
+      animation: slideDown 0.6s 6.5s ease-out forwards;
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+
+    .scene-3 h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 100px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 40px;
+      line-height: 1.1;
+      animation: slideUp 0.6s 6.8s ease-out forwards;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    .scene-3 .subtitle {
+      font-size: 48px;
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 60px;
+      font-weight: 400;
+      animation: slideUp 0.6s 7.1s ease-out forwards;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    .scene-3 .quote-box {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 60px;
+      margin: 60px 80px;
+      border-left: 8px solid rgba(255, 255, 255, 0.5);
+      animation: scaleIn 0.8s 7.5s ease-out forwards;
+      transform: scale(0.8);
+      opacity: 0;
+    }
+
+    .scene-3 .quote {
+      font-size: 44px;
+      font-style: italic;
+      color: white;
+      line-height: 1.5;
+    }
+
+    .scene-3 .features {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .scene-3 .feature {
+      font-size: 40px;
+      color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      animation: slideLeft 0.5s ease-out forwards;
+      transform: translateX(50px);
+      opacity: 0;
+    }
+
+    .scene-3 .feature:nth-child(1) { animation-delay: 8s; }
+    .scene-3 .feature:nth-child(2) { animation-delay: 8.2s; }
+
+    .scene-3 .feature .icon {
+      font-size: 50px;
+    }
+
+    /* Scene 4: Split Screen */
+    .scene-4 {
+      animation: fadeIn 0.5s 9.5s ease-in forwards, fadeOut 0.5s 12.5s ease-out forwards;
+      flex-direction: row;
+      padding: 0;
+    }
+
+    .split-panel {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px;
+      animation: slideIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .split-panel.left {
+      background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
+      animation-delay: 10s;
+      transform: translateX(-100%);
+    }
+
+    .split-panel.right {
+      background: linear-gradient(135deg, #c2185b 0%, #7b1fa2 50%, #1976d2 100%);
+      animation-delay: 10.3s;
+      transform: translateX(100%);
+    }
+
+    .split-panel .icon {
+      font-size: 120px;
+      margin-bottom: 40px;
+    }
+
+    .split-panel h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 70px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .split-panel p {
+      font-size: 36px;
+      color: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* Scene 5: CTA */
+    .scene-5 {
+      background: linear-gradient(135deg, #1a2332 0%, #c2185b 50%, #1976d2 100%);
+      animation: fadeIn 0.5s 13s ease-in forwards;
+      padding: 100px;
+    }
+
+    .scene-5 .main-cta {
+      font-family: 'Playfair Display', serif;
+      font-size: 110px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 50px;
+      line-height: 1.2;
+      animation: scaleIn 0.8s 13.5s ease-out forwards;
+      transform: scale(0);
+    }
+
+    .scene-5 .sub-cta {
+      font-size: 60px;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 600;
+      margin-bottom: 80px;
+      animation: slideUp 0.6s 14s ease-out forwards;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    .scene-5 .url {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 40px 80px;
+      border-radius: 50px;
+      font-size: 52px;
+      color: white;
+      font-weight: 700;
+      letter-spacing: 1px;
+      animation: pulse 2s 14.5s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    .scene-5 .free-badge {
+      display: inline-block;
+      background: #ff6b35;
+      color: white;
+      padding: 30px 70px;
+      border-radius: 50px;
+      font-size: 48px;
+      font-weight: 800;
+      margin-top: 60px;
+      animation: bounce 1s 15s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; }
+    }
+
+    @keyframes scaleIn {
+      to { 
+        transform: scale(1); 
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      to { 
+        transform: translateY(0); 
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideDown {
+      to { 
+        transform: translateY(0); 
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideRight {
+      to { 
+        transform: translateX(0); 
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideLeft {
+      to { 
+        transform: translateX(0); 
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      to { 
+        transform: translateX(0); 
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% { 
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% { 
+        transform: translateY(0);
+        opacity: 1;
+      }
+      50% { 
+        transform: translateY(-15px);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scene 1: Intro -->
+  <div class="scene scene-1">
+    <div class="logo">FORTEEN</div>
+    <div class="tagline">Where Professionals Become Unforgettable</div>
+  </div>
+
+  <!-- Scene 2: Studios -->
+  <div class="scene scene-2">
+    <div class="badge">🎬 FORTEEN STUDIOS</div>
+    <h1>Master<br/>Executive<br/>Presence</h1>
+    <div class="subtitle">Interactive Training Reimagined</div>
+    <div class="features">
+      <div class="feature">
+        <span class="icon">⚡</span>
+        <span>60-second practice sessions</span>
+      </div>
+      <div class="feature">
+        <span class="icon">🎯</span>
+        <span>Real VIP scenarios</span>
+      </div>
+      <div class="feature">
+        <span class="icon">📈</span>
+        <span>Instant feedback</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 3: Mind Labs -->
+  <div class="scene scene-3">
+    <div class="badge">🧠 MIND LABS</div>
+    <h1>Understand<br/>Human<br/>Behavior</h1>
+    <div class="subtitle">Through Story & Psychology</div>
+    <div class="quote-box">
+      <div class="quote">"The current was always there.<br/>You just learned to call it home."</div>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <span class="icon">🎭</span>
+        <span>Stories that transform</span>
+      </div>
+      <div class="feature">
+        <span class="icon">💡</span>
+        <span>Insights you discover yourself</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 4: Split Screen -->
+  <div class="scene scene-4">
+    <div class="split-panel left">
+      <div class="icon">🎬</div>
+      <h2>Studios</h2>
+      <p>Build Skills<br/>Through Practice</p>
+    </div>
+    <div class="split-panel right">
+      <div class="icon">🧠</div>
+      <h2>Mind Labs</h2>
+      <p>Understand<br/>Through Story</p>
+    </div>
+  </div>
+
+  <!-- Scene 5: CTA -->
+  <div class="scene scene-5">
+    <div class="main-cta">Visit Now.<br/>Try Free.</div>
+    <div class="sub-cta">No signup. No commitment.</div>
+    <div class="url">forteen.in</div>
+    <div class="free-badge">100% FREE</div>
+  </div>
+
+</body>
+</html>
