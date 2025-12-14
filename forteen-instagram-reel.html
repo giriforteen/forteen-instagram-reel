@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Forteen Studios & Mind Labs - Instagram Reel</title>
+  <title>Forteen - Instagram Reel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -12,37 +12,23 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html, body {
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
       font-family: 'Inter', sans-serif;
+      position: fixed;
     }
 
-    body {
-      position: relative;
-      background: #000;
-    }
-
-    /* Container that maintains 9:16 aspect ratio and fits screen */
-    .reel-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100vw;
-      height: 177.78vw; /* 9:16 ratio */
-      max-height: 100vh;
-      max-width: 56.25vh; /* 9:16 ratio */
-    }
-
-    /* Scene Container */
     .scene {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -50,10 +36,10 @@
       text-align: center;
       opacity: 0;
       animation-fill-mode: forwards;
-      padding: 5vh 5vw;
+      padding: 8vh 6vw;
     }
 
-    /* Scene 1: Intro - "Forteen" */
+    /* Scene 1: Intro */
     .scene-1 {
       background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
       animation: fadeIn 0.5s ease-in forwards, fadeOut 0.5s 2s ease-out forwards;
@@ -61,24 +47,24 @@
 
     .scene-1 .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 11vw;
+      font-size: 15vw;
       font-weight: 900;
       color: white;
-      margin-bottom: 3vh;
+      margin-bottom: 2vh;
       animation: scaleIn 0.8s 0.3s ease-out forwards;
       transform: scale(0);
     }
 
     .scene-1 .tagline {
-      font-size: 3.9vw;
+      font-size: 5vw;
       color: rgba(255, 255, 255, 0.9);
       font-weight: 300;
       animation: slideUp 0.6s 0.8s ease-out forwards;
-      transform: translateY(30px);
+      transform: translateY(20px);
       opacity: 0;
     }
 
-    /* Scene 2: Studios Showcase */
+    /* Scene 2: Studios */
     .scene-2 {
       background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
       animation: fadeIn 0.5s 2.5s ease-in forwards, fadeOut 0.5s 5.5s ease-out forwards;
@@ -87,55 +73,54 @@
     .scene-2 .badge {
       background: rgba(255, 107, 53, 0.2);
       color: #ff6b35;
-      padding: 2vh 5vw;
-      border-radius: 50px;
-      font-size: 3vw;
+      padding: 1.5vh 6vw;
+      border-radius: 30px;
+      font-size: 4vw;
       font-weight: 700;
-      letter-spacing: 2px;
-      margin-bottom: 5vh;
+      letter-spacing: 1px;
+      margin-bottom: 3vh;
       animation: slideDown 0.6s 3s ease-out forwards;
-      transform: translateY(-30px);
+      transform: translateY(-20px);
       opacity: 0;
     }
 
     .scene-2 h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 9.3vw;
+      font-size: 12vw;
       font-weight: 900;
       color: white;
-      margin-bottom: 4vh;
+      margin-bottom: 2vh;
       line-height: 1.1;
       animation: slideUp 0.6s 3.3s ease-out forwards;
-      transform: translateY(30px);
+      transform: translateY(20px);
       opacity: 0;
     }
 
     .scene-2 .subtitle {
-      font-size: 4.4vw;
+      font-size: 5.5vw;
       color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 6vh;
+      margin-bottom: 4vh;
       font-weight: 400;
       animation: slideUp 0.6s 3.6s ease-out forwards;
-      transform: translateY(30px);
+      transform: translateY(20px);
       opacity: 0;
     }
 
     .scene-2 .features {
       display: flex;
       flex-direction: column;
-      gap: 3vh;
-      margin-top: 6vh;
+      gap: 2vh;
     }
 
     .scene-2 .feature {
-      font-size: 3.7vw;
+      font-size: 4.5vw;
       color: rgba(255, 255, 255, 0.85);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 2vw;
+      gap: 3vw;
       animation: slideRight 0.5s ease-out forwards;
-      transform: translateX(-50px);
+      transform: translateX(-30px);
       opacity: 0;
     }
 
@@ -144,10 +129,10 @@
     .scene-2 .feature:nth-child(3) { animation-delay: 4.4s; }
 
     .scene-2 .feature .icon {
-      font-size: 4.6vw;
+      font-size: 6vw;
     }
 
-    /* Scene 3: Mind Labs Showcase */
+    /* Scene 3: Mind Labs */
     .scene-3 {
       background: linear-gradient(135deg, #c2185b 0%, #7b1fa2 50%, #1976d2 100%);
       animation: fadeIn 0.5s 6s ease-in forwards, fadeOut 0.5s 9s ease-out forwards;
@@ -156,53 +141,53 @@
     .scene-3 .badge {
       background: rgba(255, 255, 255, 0.2);
       color: white;
-      padding: 2vh 5vw;
-      border-radius: 50px;
-      font-size: 3vw;
+      padding: 1.5vh 6vw;
+      border-radius: 30px;
+      font-size: 4vw;
       font-weight: 700;
-      letter-spacing: 2px;
-      margin-bottom: 5vh;
+      letter-spacing: 1px;
+      margin-bottom: 3vh;
       animation: slideDown 0.6s 6.5s ease-out forwards;
-      transform: translateY(-30px);
+      transform: translateY(-20px);
       opacity: 0;
     }
 
     .scene-3 h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 9.3vw;
+      font-size: 12vw;
       font-weight: 900;
       color: white;
-      margin-bottom: 4vh;
+      margin-bottom: 2vh;
       line-height: 1.1;
       animation: slideUp 0.6s 6.8s ease-out forwards;
-      transform: translateY(30px);
+      transform: translateY(20px);
       opacity: 0;
     }
 
     .scene-3 .subtitle {
-      font-size: 4.4vw;
+      font-size: 5.5vw;
       color: rgba(255, 255, 255, 0.95);
-      margin-bottom: 6vh;
+      margin-bottom: 3vh;
       font-weight: 400;
       animation: slideUp 0.6s 7.1s ease-out forwards;
-      transform: translateY(30px);
+      transform: translateY(20px);
       opacity: 0;
     }
 
     .scene-3 .quote-box {
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(10px);
-      border-radius: 30px;
-      padding: 6vh 8vw;
-      margin: 6vh 8vw;
-      border-left: 8px solid rgba(255, 255, 255, 0.5);
+      border-radius: 20px;
+      padding: 3vh 6vw;
+      margin: 2vh 0;
+      border-left: 5px solid rgba(255, 255, 255, 0.5);
       animation: scaleIn 0.8s 7.5s ease-out forwards;
       transform: scale(0.8);
       opacity: 0;
     }
 
     .scene-3 .quote {
-      font-size: 4vw;
+      font-size: 5vw;
       font-style: italic;
       color: white;
       line-height: 1.5;
@@ -211,19 +196,19 @@
     .scene-3 .features {
       display: flex;
       flex-direction: column;
-      gap: 3vh;
-      margin-top: 6vh;
+      gap: 2vh;
+      margin-top: 3vh;
     }
 
     .scene-3 .feature {
-      font-size: 3.7vw;
+      font-size: 4.5vw;
       color: rgba(255, 255, 255, 0.9);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 2vw;
+      gap: 3vw;
       animation: slideLeft 0.5s ease-out forwards;
-      transform: translateX(50px);
+      transform: translateX(30px);
       opacity: 0;
     }
 
@@ -231,7 +216,7 @@
     .scene-3 .feature:nth-child(2) { animation-delay: 8.2s; }
 
     .scene-3 .feature .icon {
-      font-size: 4.6vw;
+      font-size: 6vw;
     }
 
     /* Scene 4: Split Screen */
@@ -248,7 +233,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 8vh 4vw;
+      padding: 5vh 5vw;
       animation: slideIn 0.8s ease-out forwards;
       opacity: 0;
     }
@@ -266,23 +251,23 @@
     }
 
     .split-panel .icon {
-      font-size: 11vw;
-      margin-bottom: 4vh;
+      font-size: 15vw;
+      margin-bottom: 2vh;
     }
 
     .split-panel h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 6.5vw;
+      font-size: 9vw;
       font-weight: 900;
       color: white;
-      margin-bottom: 3vh;
+      margin-bottom: 2vh;
     }
 
     .split-panel p {
-      font-size: 3.3vw;
+      font-size: 4.5vw;
       color: rgba(255, 255, 255, 0.9);
       text-align: center;
-      line-height: 1.4;
+      line-height: 1.3;
     }
 
     /* Scene 5: CTA */
@@ -293,31 +278,31 @@
 
     .scene-5 .main-cta {
       font-family: 'Playfair Display', serif;
-      font-size: 10vw;
+      font-size: 13vw;
       font-weight: 900;
       color: white;
-      margin-bottom: 5vh;
+      margin-bottom: 3vh;
       line-height: 1.2;
       animation: scaleIn 0.8s 13.5s ease-out forwards;
       transform: scale(0);
     }
 
     .scene-5 .sub-cta {
-      font-size: 5.5vw;
+      font-size: 6vw;
       color: rgba(255, 255, 255, 0.95);
       font-weight: 600;
-      margin-bottom: 8vh;
+      margin-bottom: 5vh;
       animation: slideUp 0.6s 14s ease-out forwards;
-      transform: translateY(30px);
+      transform: translateY(20px);
       opacity: 0;
     }
 
     .scene-5 .url {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
-      padding: 4vh 8vw;
-      border-radius: 50px;
-      font-size: 4.8vw;
+      padding: 3vh 10vw;
+      border-radius: 40px;
+      font-size: 6.5vw;
       color: white;
       font-weight: 700;
       letter-spacing: 1px;
@@ -329,140 +314,65 @@
       display: inline-block;
       background: #ff6b35;
       color: white;
-      padding: 3vh 7vw;
-      border-radius: 50px;
-      font-size: 4.4vw;
+      padding: 2.5vh 10vw;
+      border-radius: 40px;
+      font-size: 6vw;
       font-weight: 800;
-      margin-top: 6vh;
+      margin-top: 4vh;
       animation: bounce 1s 15s ease-in-out infinite;
       opacity: 0;
     }
 
     /* Animations */
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeOut {
-      to { opacity: 0; }
-    }
-
-    @keyframes scaleIn {
-      to { 
-        transform: scale(1); 
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideUp {
-      to { 
-        transform: translateY(0); 
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideDown {
-      to { 
-        transform: translateY(0); 
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideRight {
-      to { 
-        transform: translateX(0); 
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideLeft {
-      to { 
-        transform: translateX(0); 
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideIn {
-      to { 
-        transform: translateX(0); 
-        opacity: 1;
-      }
-    }
-
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes fadeOut { to { opacity: 0; } }
+    @keyframes scaleIn { to { transform: scale(1); opacity: 1; } }
+    @keyframes slideUp { to { transform: translateY(0); opacity: 1; } }
+    @keyframes slideDown { to { transform: translateY(0); opacity: 1; } }
+    @keyframes slideRight { to { transform: translateX(0); opacity: 1; } }
+    @keyframes slideLeft { to { transform: translateX(0); opacity: 1; } }
+    @keyframes slideIn { to { transform: translateX(0); opacity: 1; } }
     @keyframes pulse {
-      0%, 100% { 
-        transform: scale(1);
-        opacity: 1;
-      }
-      50% { 
-        transform: scale(1.05);
-        opacity: 0.9;
-      }
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
     }
-
     @keyframes bounce {
-      0%, 100% { 
-        transform: translateY(0);
-        opacity: 1;
-      }
-      50% { 
-        transform: translateY(-15px);
-        opacity: 1;
-      }
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(-10px); opacity: 1; }
     }
   </style>
 </head>
 <body>
 
-<div class="reel-container">
-  <!-- Scene 1: Intro -->
   <div class="scene scene-1">
     <div class="logo">FORTEEN</div>
     <div class="tagline">Where Professionals Become Unforgettable</div>
   </div>
 
-  <!-- Scene 2: Studios -->
   <div class="scene scene-2">
     <div class="badge">🎬 FORTEEN STUDIOS</div>
     <h1>Master<br/>Executive<br/>Presence</h1>
     <div class="subtitle">Interactive Training Reimagined</div>
     <div class="features">
-      <div class="feature">
-        <span class="icon">⚡</span>
-        <span>60-second practice sessions</span>
-      </div>
-      <div class="feature">
-        <span class="icon">🎯</span>
-        <span>Real VIP scenarios</span>
-      </div>
-      <div class="feature">
-        <span class="icon">📈</span>
-        <span>Instant feedback</span>
-      </div>
+      <div class="feature"><span class="icon">⚡</span><span>60-second sessions</span></div>
+      <div class="feature"><span class="icon">🎯</span><span>Real VIP scenarios</span></div>
+      <div class="feature"><span class="icon">📈</span><span>Instant feedback</span></div>
     </div>
   </div>
 
-  <!-- Scene 3: Mind Labs -->
   <div class="scene scene-3">
     <div class="badge">🧠 MIND LABS</div>
     <h1>Understand<br/>Human<br/>Behavior</h1>
     <div class="subtitle">Through Story & Psychology</div>
     <div class="quote-box">
-      <div class="quote">"The current was always there.<br/>You just learned to call it home."</div>
+      <div class="quote">"The current was always there. You just learned to call it home."</div>
     </div>
     <div class="features">
-      <div class="feature">
-        <span class="icon">🎭</span>
-        <span>Stories that transform</span>
-      </div>
-      <div class="feature">
-        <span class="icon">💡</span>
-        <span>Insights you discover yourself</span>
-      </div>
+      <div class="feature"><span class="icon">🎭</span><span>Stories that transform</span></div>
+      <div class="feature"><span class="icon">💡</span><span>Insights you discover</span></div>
     </div>
   </div>
 
-  <!-- Scene 4: Split Screen -->
   <div class="scene scene-4">
     <div class="split-panel left">
       <div class="icon">🎬</div>
@@ -476,15 +386,12 @@
     </div>
   </div>
 
-  <!-- Scene 5: CTA -->
   <div class="scene scene-5">
     <div class="main-cta">Visit Now.<br/>Try Free.</div>
     <div class="sub-cta">No signup. No commitment.</div>
     <div class="url">forteen.in</div>
     <div class="free-badge">100% FREE</div>
   </div>
-
-</div>
 
 </body>
 </html>
